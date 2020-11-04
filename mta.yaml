@@ -1,0 +1,19 @@
+ID: hana_cloud_sflight_data_model
+_schema-version: '2.1'
+version: 0.0.1
+
+modules:
+ - name: sflight_db
+   type: hdb
+   path: db
+   requires:
+    - name: hdi_sflight_db
+
+resources:
+ - name: hdi_sflight_db
+   parameters:
+      config:
+        schema: sflight
+   properties:
+      hdi-container-name: ${service-name}
+   type: com.sap.xs.hdi-container
